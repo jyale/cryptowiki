@@ -130,3 +130,6 @@ $wgResourceLoaderMaxQueryLength = -1;
 # End of automatically generated settings.
 # Add more configuration options below.
 
+# simplify how passwords are stored in the database for integration with Crypto-Book
+$wgPasswordSalt = false;
+
