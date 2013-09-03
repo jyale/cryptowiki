@@ -1,3 +1,5 @@
+<?php
+
         try {
                 global $settings;
                 $token = login($settings['user'], $settings['pass']);
@@ -7,9 +9,9 @@
                 die("FAILED: " . $e->getMessage());
         }
 
-$settings['wikiroot'] = "http://my.domain";
-$settings['user'] = "myUser";
-$settings['pass'] = "myPass";
+$settings['wikiroot'] = "http://smorz.cs.yale.edu/cryptowiki/wiki";
+$settings['user'] = "Bryan";
+$settings['pass'] = "test";
 $settings['cookiefile'] = "cookies.tmp";
 
 function httpRequest($url, $post="") {
@@ -44,7 +46,7 @@ function httpRequest($url, $post="") {
 function login ($user, $pass, $token='') {
         global $settings;
 
-        $url = $settings['wikiroot'] . "/w/api.php?action=login&format=xml";
+        $url = $settings['wikiroot'] . "/api.php?action=login&format=xml";
 
         $params = "action=login&lgname=$user&lgpassword=$pass";
         if (!empty($token)) {
@@ -78,3 +80,5 @@ function login ($user, $pass, $token='') {
         
         return $result[0]->attributes()->token;
 }
+
+?>
