@@ -1,14 +1,5 @@
 <?php
 
-        try {
-                global $settings;
-                $token = login($settings['user'], $settings['pass']);
-                login($settings['user'], $settings['pass'], $token);
-                echo ("SUCCESS");
-        } catch (Exception $e) {
-                die("FAILED: " . $e->getMessage());
-        }
-
 $settings['wikiroot'] = "http://smorz.cs.yale.edu/cryptowiki/wiki";
 $settings['user'] = "Bryan";
 $settings['pass'] = "test";
@@ -80,5 +71,19 @@ function login ($user, $pass, $token='') {
         
         return $result[0]->attributes()->token;
 }
+
+echo("weak");
+
+        try {
+                global $settings;
+                $token = login($settings['user'], $settings['pass']);
+                login($settings['user'], $settings['pass'], $token);
+                echo ("SUCCESS");
+        } catch (Exception $e) {
+                die("FAILED: " . $e->getMessage());
+        }
+
+echo("code");
+
 
 ?>
