@@ -18,9 +18,9 @@ function httpRequest($url, $post="") {
         curl_setopt ($ch, CURLOPT_COOKIEJAR, $settings['cookiefile']);
         if (!empty($post)) curl_setopt($ch,CURLOPT_POSTFIELDS,$post);
         //UNCOMMENT TO DEBUG TO output.tmp
-        //curl_setopt($ch, CURLOPT_VERBOSE, true); // Display communication with server
-        //$fp = fopen("output.tmp", "w");
-        //curl_setopt($ch, CURLOPT_STDERR, $fp); // Display communication with server
+        curl_setopt($ch, CURLOPT_VERBOSE, true); // Display communication with server
+        $fp = fopen("output.tmp", "w");
+        curl_setopt($ch, CURLOPT_STDERR, $fp); // Display communication with server
         
         $xml = curl_exec($ch);
         
